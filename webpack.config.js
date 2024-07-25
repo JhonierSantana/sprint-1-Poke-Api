@@ -23,7 +23,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i, // Aplicar loader a archivos de imagen
+        test: /\.(png|jpg|jpeg|gif|webp)$/i,
         type: "asset/resource",
       },
     ],
@@ -32,14 +32,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html", // Ruta al archivo HTML de plantilla
       filename: "index.html", // Nombre del archivo HTML generado
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
-      },
+      minify: false,
     }),
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
