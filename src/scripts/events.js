@@ -19,7 +19,7 @@ export const addOtherPokemonClickListener = () => {
       const randomId = Math.floor(Math.random() * 898) + 1;
       try {
         const response = await axios.get(
-          "https://pokeapi.co/api/v2/pokemon/${randomId}"
+          `https://pokeapi.co/api/v2/pokemon/${randomId}`
         );
         const dataApi = response.data;
         element.src = dataApi.sprites.front_default;
