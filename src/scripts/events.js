@@ -35,12 +35,17 @@ export const addSearchButtonClickListener = () => {
   const searchButton = document.querySelector(".search-button");
   const searchInput = document.querySelector(".search-input");
 
-  searchButton.addEventListener("click", () => {
+  searchButton.addEventListener("click", async () => {
     const pokemonName = searchInput.value.trim().toLowerCase();
     if (pokemonName) {
-      PokemonData(pokemonName);
-    } else {
-      console.error("Please enter a Pokémon name.");
+      try {
+        const data = await PokemonData(pokemonName);
+        if (!data) {
+          throw new Error();
+        }
+      } catch (error) {
+        alert("No se encontró ningún Pokémon con ese nombre.");
+      }
     }
   });
 };
